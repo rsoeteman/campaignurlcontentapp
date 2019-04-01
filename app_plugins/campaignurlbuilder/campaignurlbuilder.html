@@ -1,0 +1,54 @@
+﻿<div class="umb-box" ng-controller="seo.CampaignUrlBuilderApp as vm">
+  <div class="form-horizontal ng-scope">
+    <div class="umb-box-content">
+      <label class="constrol-label"><small style="font-size: 14px">This app allows you to easily add campaign parameters to URLs so you can track Custom Campaigns in Google Analytics. Specify Campaign parameters and copy to clipboard</small></label>
+    </div>
+
+    <div class="umb-box ng-scope" data-element="node-info-urls">
+      <div class="umb-box-header " title-key="general_links">
+        <div>
+          <div class="umb-box-header-title ">Links</div>
+        </div>
+      </div>
+      <div class="block-form umb-box-content ">
+        <ul class="nav nav-stacked " style="margin-bottom: 0;">
+          <!-- ngRepeat: url in currentUrls -->
+          <li ng-repeat="url in vm.editorInfo.urls">
+            <!-- ngIf: url.isUrl --><div ng-if="url.isUrl">
+              <span style="font-size: 13px; color: #cccccc; width: 50px;display: inline-block">{{url.culture}}</span>
+              {{vm.buildUrlQueryString(url.text)}}&nbsp;&nbsp;<i title="Copy url to clipboard" class="btn btn-outline icon-documents" ng-click="vm.copy(url.text)"></i>
+            </div><!-- end ngIf: url.isUrl -->
+            <!-- ngIf: !url.isUrl -->
+          </li><!-- end ngRepeat: url in currentUrls -->
+        </ul>
+      </div>
+    </div>
+    <div class="umb-box-content">
+      <div ng-repeat="item in vm.campaignOptions">
+        <div class="umb-property ng-scope ng-isolate-scope">
+          <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+              <label class="control-label">
+                {{item.name}}
+                <small ng-bind-html="item.description"></small>
+              </label>
+              <div class="controls">
+                <div class="umb-property-editor db ng-scope ng-isolate-scope">
+                  <div disable-tabindex="preview" class="ng-isolate-scope">
+                    <div class="ng-scope">
+                      <div class="umb-property-editor  ng-scope">
+                        <input type="text" ng-model="item.value" placeholder="{{item.placeholder}}" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>

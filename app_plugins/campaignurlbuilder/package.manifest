@@ -1,0 +1,18 @@
+﻿{
+    "contentApps": [
+      {
+        "name": "Campaign url",
+        "alias": "campaignurlbuilder", 
+        "weight": 20, 
+        "icon": "icon-link",
+        "view": "~/app_plugins/campaignurlbuilder/campaignurlbuilder.html",
+        "show": [ 
+          "+content/*", 
+          "-media/*" 
+        ]
+      }
+    ],
+    "javascript": [
+        "~/app_plugins/campaignurlbuilder/campaignurlbuilder.controller.js"
+    ]
+}
